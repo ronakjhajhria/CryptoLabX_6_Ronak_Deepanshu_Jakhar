@@ -1,0 +1,2 @@
+Modern cryptography uses mathematical techniques to protect digital communication.
+Secure communication is important for computers and networks.

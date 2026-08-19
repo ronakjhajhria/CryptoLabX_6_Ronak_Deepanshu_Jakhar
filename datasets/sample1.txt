@@ -1,0 +1,2 @@
+Cryptography is the study of techniques used to protect information.
+It provides confidentiality, integrity, authentication, and security.

@@ -1,0 +1,2 @@
+Information security protects data from unauthorized access.
+Strong security requires careful analysis and secure system design.

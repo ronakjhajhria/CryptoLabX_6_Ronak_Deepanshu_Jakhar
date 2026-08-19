@@ -1,0 +1,2 @@
+Classical cryptography includes traditional methods of encryption.
+Substitution and transposition techniques are important historical concepts.

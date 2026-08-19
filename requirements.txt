@@ -1,0 +1,3 @@
+# CryptoLabX - Week 1
+# No external dependencies required.
+# Python standard library is sufficient.

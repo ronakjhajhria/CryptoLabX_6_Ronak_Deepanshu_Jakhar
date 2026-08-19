@@ -1,0 +1,2 @@
+Cryptanalysis is the study of analyzing and breaking cryptographic systems.
+Frequency analysis can be useful when studying classical ciphers.
