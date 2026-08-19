@@ -8,10 +8,20 @@ grow into a complete framework for studying classical cryptography,
 cryptanalysis attacks, mathematical techniques, modern cryptography,
 and security analysis.
 
-## Team Members
+## Project Details
 
-- Ronak Jhajhria -> 2024ucp1538
-- Deepanshu Jakhar -> 2024ucp1743
+- **Students Name & Roll Number:**
+  - Ronak Jhajhria (2024ucp1538)
+  - Deepanshu Jakhar (2024ucp1743)
+- **Assigned Application:** CryptoLabX Toolkit
+- **Programming Language:** Python
+- **SAST Tool:** Semgrep
+
+## Lab Progress Checklist
+
+- [x] Week 1: Project Setup and Modular Structure
+- [x] Week 2: SAST Tool Configuration and Analysis (Semgrep)
+
 
 ## Week 1 Objectives
 
