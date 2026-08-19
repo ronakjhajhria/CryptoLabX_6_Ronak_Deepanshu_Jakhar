@@ -21,6 +21,8 @@ and security analysis.
 
 - [x] Week 1: Project Setup and Modular Structure
 - [x] Week 2: SAST Tool Configuration and Analysis (Semgrep)
+- [x] Week 3: Cryptocurrency Wallet Application (Lab Assignment 3)
+
 
 
 ## Week 1 Objectives
