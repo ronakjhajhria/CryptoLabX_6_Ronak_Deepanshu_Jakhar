@@ -1,5 +1,5 @@
 # Shift Cipher Cryptanalysis
-
+**Author:** Ronak ID = 2024ucp1538    , Deepanshu jakhar 2024ucp1734
 ## Purpose
 
 This laboratory studies cryptanalysis of a monoalphabetic shift (Caesar) cipher using brute force, dictionary scoring, and Chi-Square analysis. The experiments use long English messages so frequency analysis has enough data.
