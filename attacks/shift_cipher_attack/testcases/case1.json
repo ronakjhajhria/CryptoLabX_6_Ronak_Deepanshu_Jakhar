@@ -1,0 +1,5 @@
+{
+  "plaintext": "This laboratory studies the shift cipher and cryptography. The secret message uses a key to move every letter through the alphabet. We can encrypt a message, decrypt it, and compare an attack with the known answer. Security depends on understanding simple attacks and careful analysis.",
+  "key": 3,
+  "ciphertext": "Wklv oderudwrub vwxglhv wkh vkliw flskhu dqg fubswrjudskb. Wkh vhfuhw phvvdjh xvhv d nhb wr pryh hyhub ohwwhu wkurxjk wkh doskdehw. Zh fdq hqfubsw d phvvdjh, ghfubsw lw, dqg frpsduh dq dwwdfn zlwk wkh nqrzq dqvzhu. Vhfxulwb ghshqgv rq xqghuvwdqglqj vlpsoh dwwdfnv dqg fduhixo dqdobvlv."
+}

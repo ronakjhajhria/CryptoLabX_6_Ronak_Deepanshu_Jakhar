@@ -1,0 +1,5 @@
+{
+  "plaintext": "Careful testing includes uppercase text, lowercase text, spaces, punctuation, and keys near the ends of the range. The program should handle key zero as unchanged text and key twenty five as a shift backward by one letter. Longer messages make statistical guesses more reliable.",
+  "key": 23,
+  "ciphertext": "Zxobcri qbpqfkd fkzirabp rmmbozxpb qbuq, iltbozxpb qbuq, pmxzbp, mrkzqrxqflk, xka hbvp kbxo qeb bkap lc qeb oxkdb. Qeb moldoxj pelria exkaib hbv wbol xp rkzexkdba qbuq xka hbv qtbkqv cfsb xp x pefcq yxzhtxoa yv lkb ibqqbo. Ilkdbo jbppxdbp jxhb pqxqfpqfzxi drbppbp jlob obifxyib."
+}

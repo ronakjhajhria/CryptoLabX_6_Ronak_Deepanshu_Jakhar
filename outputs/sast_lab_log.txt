@@ -73,3 +73,18 @@ Exiting application...
 PS>git add .
 
 ]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cVICTUS\x5cDownloads\x5cCryptoLabX_6_Ronak_Deepanshu_JakharPS C:\Users\VICTUS\Downloads\CryptoLabX_6_Ronak_Deepanshu_Jakhar> ]633;B
+PS>git status
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cVICTUS\x5cDownloads\x5cCryptoLabX_6_Ronak_Deepanshu_JakharPS C:\Users\VICTUS\Downloads\CryptoLabX_6_Ronak_Deepanshu_Jakhar> ]633;B
+PS>git add outputs/sast_lab_log.txt
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cVICTUS\x5cDownloads\x5cCryptoLabX_6_Ronak_Deepanshu_JakharPS C:\Users\VICTUS\Downloads\CryptoLabX_6_Ronak_Deepanshu_Jakhar> ]633;B
+PS>git status
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cVICTUS\x5cDownloads\x5cCryptoLabX_6_Ronak_Deepanshu_JakharPS C:\Users\VICTUS\Downloads\CryptoLabX_6_Ronak_Deepanshu_Jakhar> ]633;B
+PS>git commit -m "Assignment 3 cryptography wallet created"
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cVICTUS\x5cDownloads\x5cCryptoLabX_6_Ronak_Deepanshu_JakharPS C:\Users\VICTUS\Downloads\CryptoLabX_6_Ronak_Deepanshu_Jakhar> ]633;B
+PS>git push -u origin main
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cVICTUS\x5cDownloads\x5cCryptoLabX_6_Ronak_Deepanshu_JakharPS C:\Users\VICTUS\Downloads\CryptoLabX_6_Ronak_Deepanshu_Jakhar> ]633;B

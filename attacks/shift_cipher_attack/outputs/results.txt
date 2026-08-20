@@ -1,0 +1,7 @@
+Test Case | Actual Key | Dictionary Key | Chi-Square Key | Dictionary Correct? | Chi-Square Correct?
+----------------------------------------------------------------------------------------------------
+case1.json |          3 |               3 |              3 | True               | True
+case2.json |          7 |               7 |              7 | True               | True
+case3.json |         13 |              13 |             13 | True               | True
+case4.json |         19 |              19 |             19 | True               | True
+case5.json |         23 |              23 |             23 | True               | True
