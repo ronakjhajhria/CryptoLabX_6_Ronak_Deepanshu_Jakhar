@@ -1,3 +1,2 @@
 # CryptoLabX - Week 1
-# No external dependencies required.
-# Python standard library is sufficient.
+pycryptodome>=3.20,<4
