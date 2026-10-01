@@ -18,12 +18,30 @@ class AttackResult:
     oracle_queries: int
 
 
+def pad_pkcs7(data: bytes) -> bytes:
+    """Add PKCS#7 padding so data is a multiple of the AES block size."""
+    padding_length = BLOCK_SIZE - len(data) % BLOCK_SIZE
+    return data + bytes([padding_length]) * padding_length
+
+
+def unpad_pkcs7(data: bytes) -> bytes:
+    """Remove valid PKCS#7 padding or raise ValueError."""
+    if not data or len(data) % BLOCK_SIZE:
+        raise ValueError("data must contain complete padded blocks")
+
+    padding_length = data[-1]
+    if not 1 <= padding_length <= BLOCK_SIZE or not data.endswith(
+        bytes([padding_length]) * padding_length
+    ):
+        raise ValueError("data has invalid PKCS#7 padding")
+    return data[:-padding_length]
+
+
 def encrypt_message(plaintext: bytes, key: bytes = None, iv: bytes = None):
     """Encrypt bytes for the self-contained demonstration fixture."""
     key = get_random_bytes(BLOCK_SIZE) if key is None else key
     iv = get_random_bytes(BLOCK_SIZE) if iv is None else iv
-    padding_length = BLOCK_SIZE - len(plaintext) % BLOCK_SIZE
-    padded_plaintext = plaintext + bytes([padding_length]) * padding_length
+    padded_plaintext = pad_pkcs7(plaintext)
     ciphertext = AES.new(key, AES.MODE_CBC, iv).encrypt(padded_plaintext)
     return key, iv, ciphertext
 
@@ -35,11 +53,11 @@ def make_padding_oracle(key: bytes) -> Oracle:
             return False
 
         plaintext = AES.new(key, AES.MODE_CBC, iv).decrypt(ciphertext)
-        padding_length = plaintext[-1]
-        return (
-            1 <= padding_length <= BLOCK_SIZE
-            and plaintext.endswith(bytes([padding_length]) * padding_length)
-        )
+        try:
+            unpad_pkcs7(plaintext)
+        except ValueError:
+            return False
+        return True
 
     return oracle
 
@@ -101,13 +119,12 @@ def recover_plaintext(iv: bytes, ciphertext: bytes, oracle: Oracle) -> AttackRes
 
         recovered.extend(plaintext_block)
 
-    padding_length = recovered[-1]
-    if not 1 <= padding_length <= BLOCK_SIZE or not recovered.endswith(
-        bytes([padding_length]) * padding_length
-    ):
-        raise RuntimeError("recovered plaintext has invalid PKCS#7 padding")
+    try:
+        plaintext = unpad_pkcs7(recovered)
+    except ValueError as error:
+        raise RuntimeError("recovered plaintext has invalid PKCS#7 padding") from error
 
-    return AttackResult(bytes(recovered[:-padding_length]), query_count)
+    return AttackResult(plaintext, query_count)
 
 
 def run_demo(plaintext: str) -> AttackResult:

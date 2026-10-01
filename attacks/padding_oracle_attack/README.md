@@ -31,6 +31,17 @@ python attacks/padding_oracle_attack/src/padding_oracle.py
 python attacks/padding_oracle_attack/src/padding_oracle.py --plaintext "A different message, not known to the attack."
 ```
 
+For standalone padding, import `pad_pkcs7` and `unpad_pkcs7` from `padding_oracle.py`:
+
+```python
+from padding_oracle import pad_pkcs7, unpad_pkcs7
+
+padded = pad_pkcs7(b"hello")
+plaintext = unpad_pkcs7(padded)
+```
+
+`unpad_pkcs7` raises `ValueError` if the input is empty, not block-aligned, or has invalid padding.
+
 The demo generates a fresh key and IV, encrypts the supplied message, then gives the attack only the IV, ciphertext, and oracle callback. It prints the recovered plaintext and actual number of oracle calls. The exact query count varies with the generated ciphertext. To use an existing ciphertext in a real exercise, call `recover_plaintext(iv, ciphertext, oracle)` with the provided data and an oracle callback implementing that exercise's interface.
 
 Run tests with:
