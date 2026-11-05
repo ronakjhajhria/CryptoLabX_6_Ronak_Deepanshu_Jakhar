@@ -63,6 +63,24 @@ Run the focused tests:
 
 The demonstration intentionally uses MT19937 with observable seeds to teach cryptographic weakness; it must not be used for real encryption or reset tokens.
 
+## Miller-Rabin 512-bit Prime Generation
+
+- Assignment implementation: [modern/miller_rabin_prime_generation/src/miller_rabin_prime.py](modern/miller_rabin_prime_generation/src/miller_rabin_prime.py)
+- Instructions and experimental format: [modern/miller_rabin_prime_generation/README.md](modern/miller_rabin_prime_generation/README.md)
+- Generated report: [modern/miller_rabin_prime_generation/outputs/results.txt](modern/miller_rabin_prime_generation/outputs/results.txt)
+
+Run:
+
+```powershell
+.\.venv\Scripts\python.exe modern\miller_rabin_prime_generation\src\miller_rabin_prime.py --bits 512 --rounds 40
+```
+
+Run tests:
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s modern\miller_rabin_prime_generation\testcases -p "test_*.py"
+```
+
 ## Project Structure
 
 ```text

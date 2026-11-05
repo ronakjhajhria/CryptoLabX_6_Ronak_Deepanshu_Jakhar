@@ -3,4 +3,5 @@
 pycryptodome>=3.20,<4
 # Assignment 10 and repository tests.
 pytest>=8,<9
+sympy>=1.13,<2
 # Other modules use the Python standard library.

@@ -1,0 +1,14 @@
+Cryptographic 512-bit Prime Generation - Miller-Rabin
+| Parameter | Value |
+|---|---:|
+| Assigned bit length | 512 |
+| Generated prime candidate | 8797831424865339270704020084490490411769833468742970199878716135271374447120308400523513835222982701816564414188481627868893894945861374934405819285324901 |
+| Actual bit length | 512 |
+| Number of candidates tested | 9 |
+| Number of Miller-Rabin rounds | 40 |
+| Total Miller-Rabin rounds executed | 360 |
+| Total execution time | 0.038096 seconds |
+| Custom Miller-Rabin verification | PASS |
+| Independent SymPy verification | PASS |
+
+The final value also passed the custom implementation and the independent SymPy library.
