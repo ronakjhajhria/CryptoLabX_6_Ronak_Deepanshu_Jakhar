@@ -81,6 +81,17 @@ Run tests:
 .\.venv\Scripts\python.exe -m unittest discover -s modern\miller_rabin_prime_generation\testcases -p "test_*.py"
 ```
 
+## Operating-System Random Number Analysis
+
+- Implementation and notebook: [modern/os_random_analysis/](modern/os_random_analysis)
+- Generated report: [modern/os_random_analysis/outputs/results.md](modern/os_random_analysis/outputs/results.md)
+
+Run:
+
+```powershell
+.\.venv\Scripts\python.exe modern\os_random_analysis\src\os_random_analysis.py --bytes 1048576
+```
+
 ## Project Structure
 
 ```text
