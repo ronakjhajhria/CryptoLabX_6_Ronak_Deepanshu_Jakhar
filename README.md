@@ -43,6 +43,26 @@ The following features have been implemented:
 
 No cryptographic algorithms are implemented in Week 1.
 
+## Assignment 10: MT19937 Stream Cipher and Predictable Tokens
+
+- Demonstration source: [analysis/mt19937_assignment.py](analysis/mt19937_assignment.py)
+- Notebook: [docs/Assignment_10_MT19937.ipynb](docs/Assignment_10_MT19937.ipynb)
+- Tests: [tests/test_mt19937_assignment.py](tests/test_mt19937_assignment.py)
+
+Run the demonstration:
+
+```powershell
+.\.venv\Scripts\python.exe analysis\mt19937_assignment.py
+```
+
+Run the focused tests:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests\test_mt19937_assignment.py -q
+```
+
+The demonstration intentionally uses MT19937 with observable seeds to teach cryptographic weakness; it must not be used for real encryption or reset tokens.
+
 ## Project Structure
 
 ```text

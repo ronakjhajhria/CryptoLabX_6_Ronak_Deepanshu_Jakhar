@@ -1,0 +1,5 @@
+AES-CBC padding-oracle attack demonstration
+IV: a0b26f258203e83c9adb2dfeb57fc93c
+Ciphertext: ce6ed9093ddb0f467f6761836c3a6ec3
+Recovered plaintext: My test message
+Oracle queries: 2299
