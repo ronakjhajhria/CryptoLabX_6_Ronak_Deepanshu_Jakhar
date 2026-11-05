@@ -2,6 +2,7 @@
 
 import argparse
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Callable
 
 from Crypto.Cipher import AES
@@ -144,11 +145,34 @@ def main():
     )
     args = parser.parse_args()
 
-    result = run_demo(args.plaintext)
-    print("Recovered plaintext:")
-    print(result.plaintext.decode("utf-8", errors="replace"))
-    print(f"Oracle queries: {result.oracle_queries}")
-    print("AES key used by attack: none (key is held only by the demo oracle)")
+    key, iv, ciphertext = encrypt_message(args.plaintext.encode("utf-8"))
+    oracle = make_padding_oracle(key)
+
+    oracle_calls = 0
+
+    def counted_oracle(candidate_iv: bytes, target_block: bytes) -> bool:
+        nonlocal oracle_calls
+        oracle_calls += 1
+        return oracle(candidate_iv, target_block)
+
+    result = recover_plaintext(iv, ciphertext, counted_oracle)
+    plaintext = result.plaintext.decode("utf-8", errors="replace")
+    output = "\n".join(
+        (
+            "AES-CBC padding-oracle attack demonstration",
+            f"IV: {iv.hex()}",
+            f"Ciphertext: {ciphertext.hex()}",
+            f"Recovered plaintext: {plaintext}",
+            f"Oracle queries: {oracle_calls}",
+            "AES key used by attack: none (key is held only by the demo oracle)",
+        )
+    )
+
+    print(output)
+
+    output_path = Path(__file__).resolve().parents[1] / "outputs" / "results.txt"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(output + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

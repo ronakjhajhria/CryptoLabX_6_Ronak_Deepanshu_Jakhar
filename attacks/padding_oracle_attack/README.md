@@ -43,6 +43,43 @@ oracle(candidate_iv: bytes, candidate_ciphertext: bytes) -> bool
 
 `recover_plaintext(iv, ciphertext, oracle)` returns the recovered plaintext and total oracle-query count. It does not receive the AES key; the local key is held by the demo oracle.
 
+## Attack Pseudocode
+
+```text
+split ciphertext into 16-byte blocks: C0, C1, ..., Cn
+for each target block Ci (from i = n down to i = 1):
+    previous = IV if i == 1 else C(i-1)
+    intermediate = 16-byte array
+    for byte_index from 15 down to 0:
+        padding_length = 16 - byte_index
+        set known suffix bytes so decryption produces padding_length
+        for candidate from 0 through 255:
+            crafted_previous[byte_index] = candidate
+            if oracle(crafted_previous || Ci):
+                recover intermediate[byte_index] = candidate XOR padding_length
+                break
+        plaintext_block = intermediate XOR original_previous
+remove final PKCS#7 padding block
+```
+
+For every byte in a target block, CBC computes:
+
+```text
+P_i[j] = AES^-1(C_i)[j] XOR previous_block[j]
+```
+
+Therefore changing `previous_block[j]` flips the recovered plaintext byte at exactly position `j` without needing the AES key. The oracle identifies the crafted block that yields valid PKCS#7 padding, exposing the hidden intermediate-decryption bytes one position at a time.
+
+## Deliverables and Verification
+
+The complete implementation is in `src/padding_oracle.py`. Run it with a custom plaintext using:
+
+```shell
+python attacks/padding_oracle_attack/src/padding_oracle.py --plaintext "My test message"
+```
+
+The program reports the IV, ciphertext, recovered plaintext, exact oracle-query count, and confirms that no key is passed to the recovery function. It also saves the same result in `outputs/results.txt`. Query counts depend on plaintext length and candidate byte values. Binary plaintext is also supported by the library API.
+
 ## Tests
 
 Run the focused test suite from the repository root:
